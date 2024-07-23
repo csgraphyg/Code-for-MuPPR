@@ -17,10 +17,8 @@ using namespace std;
 uint N=0; 			// N is the highest node index.
 uint realN=0;		// Real number of nodes
 uint M=0; 			// M is the total number of edges.
-//----------------- Static arrays ----------------//
 uint n_countInt=0;				// The counter of countInt[]
 uint maxDegree=0, index=0;
-//---------------- Dynamic arrays ----------------//
 uint **adjList=NULL; 	// The adjacent list
 uint *degree=NULL;		// The degree list
 uint *countInt=NULL;	// countInt[] array to find intersection, etc
