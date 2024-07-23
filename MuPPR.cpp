@@ -12,8 +12,6 @@
 //============================================================================//
 using namespace std;
 //============================================================================//
-double OVERLAP_THRESHOLD=0.75;	// The OVERLAPPING THRESHOLD
-//============================================================================//
 //               Global variables that can be accessed anywhere               //
 //============================================================================//
 uint N=0; 			// N is the highest node index.
@@ -244,9 +242,9 @@ int muppr(double lest,uint seed){
 			X[q.front()] += R[q.front()];
 			if (countInt[q.front()] != n_countInt)
 			{
-				faker.push(q.front());//向量p(x)中的节点
+				faker.push(q.front());//鍚戦噺p(x)涓殑鑺傜偣
 				countInt[q.front()] = n_countInt;
-			}//无法清空其它数据
+			}//鏃犳硶娓呯┖鍏跺畠鏁版嵁
 			double R_value = R[q.front()];
 			R[q.front()] = (1 - afal) * R[q.front()] / pow(degree[q.front()] + 1, 1.5);
 			int front_num = q.front();
@@ -377,6 +375,7 @@ void tryFormingNewCommunity(){
 //============================================================================//
 void printData(const char FILENAME[]) {
  // Print everything to a file specified by the FILENAME
+		double part_name=0.75;
 		char filename[256], tmp[5];
 		strcpy_s(filename,FILENAME);
 		cout<<"FILENAME="<<FILENAME<<'\n';
@@ -384,7 +383,7 @@ void printData(const char FILENAME[]) {
 		cout<<"strlen="<<len<<'\n';
 		filename[len-4] = '\0';
 		strcat_s(filename, "_CID_AMU_");
-		_itoa_s(int(OVERLAP_THRESHOLD*100), tmp, 10);
+		_itoa_s(int(part_name*100), tmp, 10);
 		strcat_s(filename,tmp);
 		strcat_s(filename,".txt");
 		cout<<"Results = "<<filename<<endl;
